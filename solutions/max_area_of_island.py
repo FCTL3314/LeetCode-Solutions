@@ -16,9 +16,9 @@ def max_area_of_island(grid):
 
     area = 0
 
-    for r in range(rows):
-        for c in range(cols):
-            area = max(area, dfs(r, c))
+    for row in range(rows):
+        for column in range(cols):
+            area = max(area, dfs(row, column))
 
     return area
 
