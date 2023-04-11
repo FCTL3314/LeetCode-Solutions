@@ -7,8 +7,8 @@ function isPalindrome(x) {
     let right = xString.length - 1;
     while (left <= right) {
         if (xString[left] === xString[right]) {
-            left += 1;
-            right -= 1;
+            left++;
+            right--;
         } else {
             return false;
         }
