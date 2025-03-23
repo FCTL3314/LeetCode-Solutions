@@ -1,7 +1,6 @@
 # Problem: 2265. Count Nodes Equal to Average of Subtree
 
 import collections
-from functools import reduce
 from typing import Optional
 
 
