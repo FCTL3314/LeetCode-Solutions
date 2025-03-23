@@ -1,6 +1,7 @@
 # Problem: 2265. Count Nodes Equal to Average of Subtree
 
 import collections
+from functools import reduce
 from typing import Optional
 
 
@@ -17,11 +18,10 @@ class Solution:
         self.ans = 0
 
     def average_of_subtree(self, root: Optional[TreeNode]) -> int:
-        self.tree_traversal(root, list())
-
+        self.tree_traversal(root)
         return self.ans
 
-    def tree_traversal(self, node, visited):
+    def tree_traversal(self, node):
         if node is None:
             return
 
@@ -29,10 +29,8 @@ class Solution:
         if (subtree_sum // subtree_children) == node.val:
             self.ans += 1
 
-        visited.append(node)
-        self.tree_traversal(node.left, visited)
-        self.tree_traversal(node.right, visited)
-        return visited
+        self.tree_traversal(node.left)
+        self.tree_traversal(node.right)
 
     @staticmethod
     def get_children_sum(node):
