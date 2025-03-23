@@ -4,7 +4,7 @@
 def combination_sum(candidates, target):
     ans = []
 
-    def dfs(i, combination):
+    def backtrack(i, combination):
         total = sum(combination)
         if total == target:
             ans.append(combination.copy())
@@ -13,11 +13,11 @@ def combination_sum(candidates, target):
             return
 
         combination.append(candidates[i])
-        dfs(i, combination)
+        backtrack(i, combination)
         combination.pop()
-        dfs(i + 1, combination)
+        backtrack(i + 1, combination)
 
-    dfs(0, list())
+    backtrack(0, list())
 
     return ans
 
